@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<BFSM>
+
+	<GoalSet id="0">
+		<!--<Goal type="AABB" id="0" min_x="-20" min_y="-2" max_x="-16" max_y="2" />-->
+		<!--<Goal type="point" id="0" x="-18" y="0" />-->
+	</GoalSet>
+	
+	<State name="Walk" final="0" >
+		<!--<GoalSelector type="explicit" goal_set="0" goal="0"/>-->
+		<GoalSelector type="mirror" mirror_x="1" mirror_y="0"/>
+		<VelComponent type="goal" />
+	</State>
+	<State name="Stop" final="1" >
+		<GoalSelector type="identity" />
+		<VelComponent type="goal" />
+	</State>
+	<Transition from="Walk" to="Stop" >
+		<Condition type="goal_reached" distance="0.05" />
+	</Transition>
+</BFSM>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<BFSM>
+	<State name="WalkHorizontal" final="0" >
+		<GoalSelector type="mirror" mirror_x="1" mirror_y="0"/>
+		<VelComponent type="goal" />
+	</State>
+	<State name="WalkVertical" final="0" >
+		<GoalSelector type="mirror" mirror_x="0" mirror_y="1"/>
+		<VelComponent type="goal" />
+	</State>
+	<State name="Stop" final="1" >
+		<GoalSelector type="identity" />
+		<VelComponent type="goal" />
+	</State>
+	<Transition from="WalkHorizontal" to="Stop" >
+		<Condition type="goal_reached" distance="0.02" />
+	</Transition>
+		<Transition from="WalkVertical" to="Stop" >
+		<Condition type="goal_reached" distance="0.02" />
+	</Transition>
+</BFSM>
